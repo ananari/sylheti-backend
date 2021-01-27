@@ -4,7 +4,7 @@ defmodule SylhetiBackend.Schema do
   import_types SylhetiBackend.Schema.DataTypes
 
   query do
-    @desc "Get a list of events"
+    @desc "get a list of words"
     field :words, list_of(:word) do
       resolve fn _parent, _args, _resolution ->
         {:ok, SylhetiBackend.Words.list_words()}
