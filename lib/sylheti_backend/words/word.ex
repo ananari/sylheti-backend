@@ -3,14 +3,14 @@ defmodule SylhetiBackend.Words.Word do
   import Ecto.Changeset
 
   schema "words" do
-    field :bengEq, :string
-    field :bengRep, :string
+    field :beng_eq, :string
+    field :beng_rep, :string
     field :definition, :string
     field :etymology, :string
-    field :flexId, :string
-    field :ipaLexeme, :string
+    field :flex_id, :string
+    field :ipa, :string
     field :pos, :string
-    field :sylRep, :string
+    field :syl_rep, :string
 
     timestamps()
   end
@@ -18,8 +18,8 @@ defmodule SylhetiBackend.Words.Word do
   @doc false
   def changeset(word, attrs) do
     word
-    |> cast(attrs, [:ipaLexeme, :pos, :etymology, :definition, :flexId, :bengEq, :bengRep, :sylRep])
-    |> validate_required([:flexId])
-    |> unique_constraint(:flexId)
+    |> cast(attrs, [:ipa, :pos, :etymology, :definition, :flex_id, :beng_eq, :beng_rep, :syl_rep])
+    |> validate_required([:flex_id])
+    |> unique_constraint(:flex_id)
   end
 end

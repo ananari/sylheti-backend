@@ -3,14 +3,14 @@ defmodule SylhetiBackend.Schema.DataTypes do
 
   object :word do
     field :id, :id
-    field :bengEq, :string
-    field :bengRep, :string
+    field :beng_eq, :string
+    field :beng_rep, :string
     field :definition, :string
     field :etymology, :string
-    field :flexId, :string
-    field :ipaLexeme, :string
+    field :flex_id, :string
+    field :ipa, :string
     field :pos, :string
-    field :sylRep, :string
+    field :syl_rep, :string
   end
 
 end
