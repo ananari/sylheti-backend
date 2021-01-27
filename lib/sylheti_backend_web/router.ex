@@ -13,16 +13,18 @@ defmodule SylhetiBackendWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", SylhetiBackendWeb do
-    pipe_through :browser
+  # scope "/", SylhetiBackendWeb do
+  #   pipe_through :browser
 
-    get "/", PageController, :index
-  end
+  #   get "/", PageController, :index
+  # end
 
   # Other scopes may use custom stacks.
-  # scope "/api", SylhetiBackendWeb do
-  #   pipe_through :api
-  # end
+  scope "/api" do
+    pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: SylhetiBackend.Schema
+  end
 
   # Enables LiveDashboard only for development
   #
