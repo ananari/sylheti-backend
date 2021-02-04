@@ -3,7 +3,7 @@ defmodule SylhetiBackend.Repo.Migrations.CreateWords do
 
   def change do
     create table(:words, primary_key: false) do
-      add :flex_id, :string, primary_key: true
+      add :id, :string, primary_key: true
       add :ipa, :string
       add :pos, :string
       add :etymology, :string

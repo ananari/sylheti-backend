@@ -10,5 +10,13 @@ defmodule SylhetiBackend.Schema do
         {:ok, SylhetiBackend.Words.list_words()}
       end
     end
+
+    @desc "get a list of wordlinks"
+    field :wordlinks, list_of(:wordlink) do
+      resolve fn _parent, _args, _resolution ->
+        {:ok, SylhetiBackend.Words.list_wordlinks()}
+      end
+    end
   end
+
 end
