@@ -11,7 +11,7 @@ defmodule SylhetiBackend.Schema.DataTypes do
     field :pos, :string
     field :syl_rep, :string
     field :wordlinks, list_of(:wordlink)
-    field :word2, list_of(:word)
+    field :word2_of, list_of(:word)
   end
 
   object :wordlink do
