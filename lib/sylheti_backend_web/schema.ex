@@ -19,6 +19,12 @@ defmodule SylhetiBackend.Schema do
       arg :id, non_null(:id)
       resolve &SylhetiBackendWeb.Resolvers.Words.get_word/3
     end
+
+    field :words, list_of(:word) do
+      arg :query, non_null(:string)
+      resolve &SylhetiBackendWeb.Resolvers.Words.search_words/3
+    end
+
   end
 
 end

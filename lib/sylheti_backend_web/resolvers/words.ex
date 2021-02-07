@@ -20,7 +20,7 @@ defmodule SylhetiBackendWeb.Resolvers.Words do
     end
   end
 
-
-
-
+  def search_words(_parents, %{query: query}, _resolution) do
+    {:ok, SylhetiBackend.Words.search_words(query)}
+  end
 end

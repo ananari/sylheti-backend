@@ -21,6 +21,11 @@ defmodule SylhetiBackend.Words do
     Repo.all(Word)
   end
 
+  def search_words(search_term) do
+    query = from w in Word, where: ilike(w.ipa, ^"#{search_term}")
+    Repo.all(query)
+  end
+
   @doc """
   Gets a single word.
 
