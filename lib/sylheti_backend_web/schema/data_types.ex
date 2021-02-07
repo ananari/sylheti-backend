@@ -10,6 +10,8 @@ defmodule SylhetiBackend.Schema.DataTypes do
     field :ipa, :string
     field :pos, :string
     field :syl_rep, :string
+    field :wordlinks, list_of(:wordlink)
+    field :word2, list_of(:word)
   end
 
   object :wordlink do
@@ -17,6 +19,8 @@ defmodule SylhetiBackend.Schema.DataTypes do
     field :word1_id, :string
     field :word2_id, :string
     field :type, :string
+    field :word1, :word
+    field :word2, :word
   end
 
 end

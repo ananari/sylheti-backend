@@ -6,16 +6,18 @@ defmodule SylhetiBackend.Schema do
   query do
     @desc "get a list of words"
     field :words, list_of(:word) do
-      resolve fn _parent, _args, _resolution ->
-        {:ok, SylhetiBackend.Words.list_words()}
-      end
+      resolve &SylhetiBackendWeb.Resolvers.Words.list_words/3
     end
 
     @desc "get a list of wordlinks"
     field :wordlinks, list_of(:wordlink) do
-      resolve fn _parent, _args, _resolution ->
-        {:ok, SylhetiBackend.Words.list_wordlinks()}
-      end
+      resolve &SylhetiBackendWeb.Resolvers.Words.list_wordlinks/3
+    end
+
+    @desc "get a word by id"
+    field :word, :word do
+      arg :id, non_null(:id)
+      resolve &SylhetiBackendWeb.Resolvers.Words.get_word/3
     end
   end
 
