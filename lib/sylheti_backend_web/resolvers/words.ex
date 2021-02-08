@@ -1,13 +1,13 @@
 defmodule SylhetiBackendWeb.Resolvers.Words do
 
-  alias SylhetiBackend.{Repo, Words.Word, Words.Wordlink}
+  alias SylhetiBackend.{Repo, Words, Words.Word, Words.Wordlink}
 
   def list_words(_parents, _args, _resolution) do
-    {:ok, SylhetiBackend.Words.list_words()}
+    {:ok, Words.list_words()}
   end
 
   def list_wordlinks(_parents, _args, _resolution) do
-    {:ok, SylhetiBackend.Words.list_wordlinks()}
+    {:ok, Words.list_wordlinks()}
   end
 
   def get_word(_parents, %{id: id}, _resolution) do

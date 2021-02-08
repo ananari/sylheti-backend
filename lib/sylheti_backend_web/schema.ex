@@ -31,6 +31,16 @@ defmodule SylhetiBackend.Schema do
       resolve &SylhetiBackendWeb.Resolvers.Words.search_words/3
     end
 
+    @desc "get a list of sentences"
+    field :sentences, list_of(:sentence) do
+      resolve &SylhetiBackendWeb.Resolvers.Examples.list_sentences/3
+    end
+
+    @desc "get a list of wordsentences"
+    field :word_sentences, list_of(:wordsentence) do
+      resolve &SylhetiBackendWeb.Resolvers.Examples.list_wordsentences/3
+    end
+
   end
 
 end

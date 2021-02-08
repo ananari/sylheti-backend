@@ -23,4 +23,18 @@ defmodule SylhetiBackend.Schema.DataTypes do
     field :word2, :word
   end
 
+  object :sentence do
+    field :id, :id
+    field :body, :string
+    field :translation, :string
+    field :beng_rep, :string
+    field :syl_rep, :string
+  end
+
+  object :wordsentence do
+    field :id, :id
+    field :word_id, :string
+    field :sentence_id, :integer
+  end
+
 end
