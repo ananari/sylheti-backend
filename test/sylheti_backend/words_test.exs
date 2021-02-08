@@ -6,9 +6,9 @@ defmodule SylhetiBackend.WordsTest do
   describe "words" do
     alias SylhetiBackend.Words.Word
 
-    @valid_attrs %{bengEq: "some bengEq", bengRep: "some bengRep", definition: "some definition", etymology: "some etymology", id: "some id", ipa: "some ipa", pos: "some pos", sylRep: "some sylRep"}
-    @update_attrs %{bengEq: "some updated bengEq", bengRep: "some updated bengRep", definition: "some updated definition", etymology: "some updated etymology", ipa: "some updated ipa", pos: "some updated pos", sylRep: "some updated sylRep"}
-    @invalid_attrs %{bengEq: nil, bengRep: nil, definition: nil, etymology: nil, id: nil, ipa: nil, pos: nil, sylRep: nil}
+    @valid_attrs %{beng_eq: "some beng_eq", beng_rep: "some beng_rep", definition: "some definition", etymology: "some etymology", id: "some id", ipa: "some ipa", pos: "some pos", syl_rep: "some syl_rep"}
+    @update_attrs %{beng_eq: "some updated beng_eq", beng_rep: "some updated beng_rep", definition: "some updated definition", etymology: "some updated etymology", ipa: "some updated ipa", pos: "some updated pos", syl_rep: "some updated syl_rep"}
+    @invalid_attrs %{beng_eq: nil, beng_rep: nil, definition: nil, etymology: nil, id: nil, ipa: nil, pos: nil, syl_rep: nil}
 
     def word_fixture(attrs \\ %{}) do
       {:ok, word} =
@@ -31,14 +31,14 @@ defmodule SylhetiBackend.WordsTest do
 
     test "create_word/1 with valid data creates a word" do
       assert {:ok, %Word{} = word} = Words.create_word(@valid_attrs)
-      assert word.bengEq == "some bengEq"
-      assert word.bengRep == "some bengRep"
+      assert word.beng_eq == "some beng_eq"
+      assert word.beng_rep == "some beng_rep"
       assert word.definition == "some definition"
       assert word.etymology == "some etymology"
       assert word.id == "some id"
       assert word.ipa == "some ipa"
       assert word.pos == "some pos"
-      assert word.sylRep == "some sylRep"
+      assert word.syl_rep == "some syl_rep"
     end
 
     test "create_word/1 with invalid data returns error changeset" do
@@ -48,13 +48,13 @@ defmodule SylhetiBackend.WordsTest do
     test "update_word/2 with valid data updates the word" do
       word = word_fixture()
       assert {:ok, %Word{} = word} = Words.update_word(word, @update_attrs)
-      assert word.bengEq == "some updated bengEq"
-      assert word.bengRep == "some updated bengRep"
+      assert word.beng_eq == "some updated beng_eq"
+      assert word.beng_rep == "some updated beng_rep"
       assert word.definition == "some updated definition"
       assert word.etymology == "some updated etymology"
       assert word.ipa == "some updated ipa"
       assert word.pos == "some updated pos"
-      assert word.sylRep == "some updated sylRep"
+      assert word.syl_rep == "some updated syl_rep"
     end
 
     test "update_word/2 with invalid data returns error changeset" do

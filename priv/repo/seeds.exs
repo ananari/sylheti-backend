@@ -9,3 +9,11 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+import SylhetiBackend.Words.Word
+import SylhetiBackend.Words.Wordlink
+import SylhetiBackend.Examples.Sentence
+import SylhetiBackend.Examples.WordSentence
+import SylhetiBackend.Repo
+
+alias SylhetiBackend.{Words.Word, Words.Wordlink, Examples.Sentence, Examples.WordSentence, Repo}
