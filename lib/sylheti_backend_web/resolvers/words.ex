@@ -20,6 +20,16 @@ defmodule SylhetiBackendWeb.Resolvers.Words do
     end
   end
 
+  def get_wordlink(_parents, %{id: id}, _resolution) do
+    found_wordlink = Repo.get(Wordlink, id) |> Repo.preload([:word1, :word2])
+    case found_wordlink do
+      nil ->
+        {:error, "word not found"}
+      wordlink ->
+        {:ok, wordlink}
+    end
+  end
+
   def search_words(_parents, %{query: query}, _resolution) do
     {:ok, SylhetiBackend.Words.search_words(query)}
   end
