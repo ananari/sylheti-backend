@@ -1,6 +1,6 @@
 defmodule SylhetiBackendWeb.Resolvers.Words do
 
-  alias SylhetiBackend.{Repo, Words.Word}
+  alias SylhetiBackend.{Repo, Words.Word, Words.Wordlink}
 
   def list_words(_parents, _args, _resolution) do
     {:ok, SylhetiBackend.Words.list_words()}
@@ -24,7 +24,7 @@ defmodule SylhetiBackendWeb.Resolvers.Words do
     found_wordlink = Repo.get(Wordlink, id) |> Repo.preload([:word1, :word2])
     case found_wordlink do
       nil ->
-        {:error, "word not found"}
+        {:error, "wordlink not found"}
       wordlink ->
         {:ok, wordlink}
     end
