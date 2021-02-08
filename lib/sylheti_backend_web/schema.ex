@@ -26,7 +26,7 @@ defmodule SylhetiBackend.Schema do
     end
 
     @desc "search for a word by its sylheti ipa lexeme"
-    field :search_words, list_of(:word) do
+    field :search_sylheti, list_of(:word) do
       arg :query, non_null(:string)
       resolve &SylhetiBackendWeb.Resolvers.Words.search_words/3
     end
