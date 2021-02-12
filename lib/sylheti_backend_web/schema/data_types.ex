@@ -10,6 +10,7 @@ defmodule SylhetiBackend.Schema.DataTypes do
     field :ipa, :string
     field :pos, :string
     field :syl_rep, :string
+    field :is_affix, :boolean
     field :wordlinks, list_of(:wordlink)
     field :word2_of, list_of(:word)
   end

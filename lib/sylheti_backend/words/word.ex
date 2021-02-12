@@ -12,6 +12,7 @@ defmodule SylhetiBackend.Words.Word do
     field :ipa, :string
     field :pos, :string
     field :syl_rep, :string
+    field :is_affix, :boolean
     many_to_many :word1_of, SylhetiBackend.Words.Word, join_through: "wordlinks", join_keys: [word2_id: :id, word1_id: :id]
     many_to_many :word2_of, SylhetiBackend.Words.Word, join_through: "wordlinks", join_keys: [word1_id: :id, word2_id: :id]
     has_many :wordlinks, SylhetiBackend.Words.Wordlink, foreign_key: :word1_id
@@ -23,6 +24,6 @@ defmodule SylhetiBackend.Words.Word do
   @doc false
   def changeset(word, attrs) do
     word
-    |> cast(attrs, [:id, :ipa, :pos, :etymology, :definition, :beng_eq, :beng_rep, :syl_rep])
+    |> cast(attrs, [:id, :ipa, :pos, :etymology, :definition, :beng_eq, :beng_rep, :syl_rep, :is_affix])
   end
 end
