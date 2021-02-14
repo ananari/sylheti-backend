@@ -47,7 +47,8 @@ defmodule SylhetiBackend.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:absinthe, "~> 1.6.0"},
       {:absinthe_plug, "~> 1.5.4"},
-      {:floki, "~> 0.30.0"}
+      {:floki, "~> 0.30.0"},
+      {:httpoison, "~> 1.8.0"}
     ]
   end
 
